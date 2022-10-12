@@ -1,0 +1,515 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+\usepackage{amsmath}
+
+\title{Алгебра и геометрия}
+\author{Лисид Лаконский}
+\date{October 2022}
+
+\begin{document}
+
+\maketitle
+
+\section{Алгебра и геометрия - 04.10.2022}
+
+\subsubsection{Ранг матрицы}
+
+Пусть дана матрица $A$ размера $m * n$.
+
+Возьмем любые $k$ ($k \le min(n;m)$) строк и $k$ столбцов матрицы $A$.
+
+На их пересечении стоят элементы, образующие определитель $k$-того порядка, который и называется минором $k$-го порядка.
+
+Под минором 1-го порядка матрицы $A$ понимается любой элемент.
+
+Рангом $r$ матрицы $A$ называется наивысший порядок минора матрицы $A$, отличный от нуля.
+
+Следовательно, если у нас матрица из четырех строк и трех столбцов, максимальный минор может быть три на три. Но если все они равны нулю, то мы не можем сказать, что ранг матрицы равен нулю.
+
+Из определения следует:
+
+\begin{enumerate}
+    \item $r$ - целое число ($0 \le r \le min(m;n)$)
+    \item Все миноры ($r + 1$) порядка либо нулевые, либо не существуют. 
+\end{enumerate}
+
+$A = \begin{pmatrix}
+    2 & 1 & 3 & 7 \\
+    0 & 4 & -1 & 0 \\
+    0 & 0 & 8 & 1
+\end{pmatrix}, r(A) = 3$
+
+Миноры 1-го порядка: любой элемент матрицы. 
+
+Миноры второго порядка: любой определитель этой матрицы 2x2: $\begin{pmatrix} 2 & 1 \\ 0 & 4 \end{pmatrix}, \begin{pmatrix} 1 & 3 \\ 4 & -1 \end{pmatrix}$
+
+Миноры третьего порядка: $\begin{pmatrix} 2 & 1 & 3 \\ 0 & 4 & -1 \\ 0 & 0 & 8\end{pmatrix}, \det A = 64 \ne 0$
+
+Минора четвертого порядка у данной матрицы не существует.
+
+\subsection{Действия над матрицами}
+
+\begin{enumerate}
+    \item Умножение строки или столбца на число, отличное от нуля.
+    \item Сложение: прибавление к одной строке (столбцу) другой, умноженной на число.
+    \item Перемещение (замена местами) двух строк или двух столбцов.
+    \item Вычеркивание нулевой строки или столбца.
+\end{enumerate}
+
+$
+A = \begin{pmatrix}
+ 2 & 3 & 4 & 5 \\
+ 3 & 5 & 2 & 4 \\
+ 5 & 9 & -2 & 2 \\
+\end{pmatrix} = \begin{pmatrix}
+    1 & 2 & -2 & -1 \\
+    3 & 5 & 2 & 4 \\
+    5 & 9 & -2 & 2
+\end{pmatrix} = \begin{pmatrix}
+    1 & 2 & -2 & -1 \\
+    0 & -1 & 8 & 7 \\
+    0 & -1 & 8 & 7
+\end{pmatrix} = \begin{pmatrix}
+ 1 & 2 & -2 & -1 \\
+ 0 & -1 & 8 & 7
+\end{pmatrix}, \begin{vmatrix} 1 & 2 \\ 0 & -1 \end{vmatrix} = -1 \ne 0
+$
+
+\subsection{Теорема Кронекера-Капелли}
+
+Рассмотрим систему $m$ линейных уравнений с $n$ неизвестными:
+
+\begin{equation}
+    \begin{cases}
+        a_{11} * x_1 + a_{12} * x_2 + ... + a_{1n} * x_n = b_1 \\
+        ... \\
+        a_{m1} * x_1 + a_{m2} * x_2 + ... + a_{mn} * x_n = b_m
+    \end{cases}
+\end{equation}
+
+$A = \begin{pmatrix}
+    a_{11} & ... & a_{1n} \\ 
+    a_{m1} & ... & a_{m n}
+\end{pmatrix}, B = \begin{pmatrix}
+    b_1 \\
+    ... \\
+    b_m
+\end{pmatrix}, X = \begin{pmatrix}
+    ?
+\end{pmatrix}, (A|B) = \begin{pmatrix}
+    a_{11} & ... & a_{1 n} & b_1 \\
+    a_{m1} & ... & a_{m n} & b_m
+\end{pmatrix}$
+
+Система называется совместной, если она имеет решение. (*) Операции только над строками.
+
+$$r(A) = r(A|B) \equiv r$$
+
+Если $r = n$, то система имеет единственное решение. Если $r < n$, то система имеет бесконечное множество решений, зависящих от ($n - r$) свободных неизвестных.
+
+\subsection{Метод Гаусса}
+
+Если столбец $B = \begin{pmatrix} b_1 \\ ... \\ b_n \end{pmatrix}$ свободных членов - нулевой, то система называется однородной.
+
+Однородная система всегда имеет решение, и она всегда совместна, так как имеет тривиальное (нулевое) решение: $x_1 = 0, x_2 = 0, ..., x_n = 0$.
+
+Если в однородной системе число неизвестных $n$ равно числу уравнений $m$, то она имеет ненулевое решение тогда и только тогда, когда определитель системы равен нулю.
+
+\begin{equation}
+    \begin{cases}
+        x_1 + 5x_2 + 4x_3 - x_4 = 2 \\
+        2x_1 - x_2 - x_3 + 2x_4 = 3 \\
+        3x_1 + 4x_2 + 3x_3 + x_4 = 5
+    \end{cases}\,.
+\end{equation}
+
+$A = \begin{pmatrix}
+    1 & 5 & 4 & -1 \\
+    2 & -1 & -1 & 2 \\
+    3 & 4 & 3 & 1
+\end{pmatrix}, B = \begin{pmatrix}
+    2 \\
+    3 \\
+    5
+\end{pmatrix}, (A|B) = \begin{pmatrix}
+    1 & 5 & 4 & -1 & 2 \\
+    2 & -1 & -1 & 2 & 3 \\
+    3 & 4 & 3 & 1 & 5
+\end{pmatrix} = \begin{pmatrix}
+    1 & 5 & 4 & -1 & 2 \\
+    0 & -11 & -9 & 4 & -1 \\
+    0 & -11 & -9 & 4 & -1
+\end{pmatrix} = \begin{pmatrix}
+    1 & 5 & 4 & -1 & 2 \\
+    0 & -11 & -9 & 4 & -1
+\end{pmatrix}, \begin{vmatrix} 1 & -5 \\ 0 & -11 \end{vmatrix} = -11 \ne 0, r(A|B) = 2 = r(A)$
+
+$r < n \rightarrow$ система имеет бесконечное кол-во решений, зависящих от (4 - 2) = 2 свободных неизвестных.
+
+Пусть $\begin{vmatrix}
+    1 & 5 \\
+    0 & -11
+\end{vmatrix}$ - базисный минор, тогда $x_1$ и $x_2$ - базисные члены, а $x_3$ и $x_4$ - свободные.
+
+$
+\begin{pmatrix}
+    1 & 5 & 4 & -1 & 2 \\
+    0 & -11 & -9 & 4 & -1
+\end{pmatrix}
+$
+
+Преобразуем данную матрицу, делая по главной диагонали базисного минора единицы, а по побочной нули.
+
+$\begin{pmatrix}
+    1 & 5 & 4 & -1 & 2 \\
+    0 & 1 & \frac{9}{11} & -\frac{4}{11} & \frac{1}{11}
+\end{pmatrix} = \begin{pmatrix}
+    10 & -\frac{-1}{11} & \frac{9}{11} & \frac{17}{11} \\
+    0 & 1 & \frac{9}{11} & -\frac{4}{11} & \frac{1}{11}
+\end{pmatrix}$
+
+Выпишем в виде системы уравнений:
+
+\begin{equation}
+    \begin{cases}
+        1x_1 + 0x_2 - \frac{1}{11}x_3 + \frac{9}{11}x_4 = \frac{17}{11} \\
+        0x_1 + 1_x2 + \frac{9}{11}x_3 - \frac{4}{11}x_4 = \frac{1}{11}
+    \end{cases}
+\end{equation}
+
+\begin{equation}
+    \begin{cases}
+        x_1 = \frac{1}{11}x_3 - \frac{9}{11}x_4 + \frac{17}{11} \\
+        x_2 = -\frac{9}{11}x_3 + \frac{4}{11}x_4 + \frac{1}{11}
+    \end{cases}
+\end{equation}
+
+Пусть $x_3 = c_1$, а $x_4 = c_2$ ($c_1, c_2 \in R$), тогда наша система приобретает вид:
+
+\begin{equation}
+    \begin{cases}
+        x_1 = \frac{1}{11}c_1 - \frac{9}{11}c_2 + \frac{17}{11} \\
+        x_3 = -\frac{9}{11}c_1 + \frac{4}{11}c_2 + \frac{1}{11} \\
+        x_3 = c_1 \\
+        c_4 = c_2
+    \end{cases}
+\end{equation}
+
+Исследуем на совместность систему
+
+\begin{equation}
+    \begin{cases}
+        2x_1 + 2x_2 + x_3 = 6 \\
+        x_1 + 2x_2 + 4x_3 = 4 \\
+        3x_1 + 4x_2 + 5x_3 = 9
+    \end{cases}
+\end{equation}
+
+$(A|B) = \begin{pmatrix}
+    2 & 2 & 1 & 6 \\
+    1 & 2 & 4 & 4 \\
+    3 & 4 & 5 & 9
+\end{pmatrix} = \begin{pmatrix}
+    1 & 2 & 4 & 4 \\
+    2 & 2 & 1 & 6 \\
+    3 & 4 & 5 & 9
+\end{pmatrix} = \begin{pmatrix}
+    1 & 2 & 4 & 4 \\
+    0 & -2 & -7 & -2 \\
+    0 & -2 & -7 & -3
+\end{pmatrix} = \begin{pmatrix}
+    1 & 2 & 4 & 4 \\
+    0 & -2 & -7 & -2 \\
+    0 & 0 & 0 & 0 & -1
+\end{pmatrix}, r(A|B) = 3, r(A) = 2$
+
+Следовательно, система несовместна и решений не имеет.
+
+\section{Алгебра и геометрия - 07.10.2022}
+
+\subsection{Собственные значения и собственные векторы матрицы}
+
+Матрицы могут представляться на плоскости - для этого нужны собственные значения и собственные векторы.
+
+Пусть дана квадратная матрица $A$ $n$-ого порядка. Ненулевой вектор $X = \begin{pmatrix}
+    x_1 \\
+    ... \\
+    x_n
+\end{pmatrix}$ называется собственным вектором матрицы $A$, если под действием этой матрицы он переходит в коллинеарный ему:
+
+$$
+A * X = \lambda X, \lambda \in R
+$$
+
+Где $\lambda$ - собственное значение соответствующего ему вектора матрицы $A$.
+
+Для нахождения $\lambda$ составляют характеристическое уравнение:
+
+$$
+|A - \lambda E| = 0
+$$
+
+Если $\lambda_0$ - сосбтвенное значение матрицы $A$, то соответствующие собственные векторы находим из системы однородных линейных уравнений.
+
+(*) Однородными называются системы, где матрица-столбец свободных членов $B$ полностью состоит из нулей
+
+$$
+(A - \lambda_0 E ) * X = 0
+$$
+
+\subsubsection{Примеры}
+
+$$A = \begin{pmatrix}
+    4 & -2 & -1 \\
+    -1 & 3 & -1 \\
+    1 & -2 & 2
+\end{pmatrix}
+$$
+
+Составим характеристическое уравнение $|A - \lambda E| = 0$:
+
+
+$$
+\begin{vmatrix}
+    4-\lambda & -2 & -1 \\
+    -1 & 3-\lambda & -1 \\
+    1 & -2 & 2 - \lambda
+\end{vmatrix}
+$$
+
+$(4 - \lambda)(3 - \lambda)(2 - \lambda) - 2 + 2 + 3 - \lambda - 8 + 2 \lambda - 4 + 2 \lambda = (12 - 7 \lambda + \lambda^2)(2 - \lambda) + 3\lambda - 9 = 24 - 12 \lambda - 14 \lambda + 7 \lambda^2 + 2 \lambda^2 - \lambda^3 + 3\lambda - 9 = -\lambda^3 - 6\lambda^2 - 23\lambda + 15 = 0$
+
+$\lambda_1 = 1$, вынесем общий множитель:
+
+$
+\frac{-\lambda^3 + 9\lambda^2 - 23\lambda + 15}{\lambda - 1} = (\lambda - 1)(-\lambda^2 + 8\lambda - 15)
+$
+
+Решаем через дискриминант или через теорему Виета: что угодно.
+
+Итого имеем:
+
+$\lambda_1 = 1, \lambda_2 = 3, \lambda_3 = 5$
+
+Найдем теперь собственные векторы.
+
+Пусть $\lambda = \lambda_1 = 1$, тогда $(A - \lambda E) * X = 0$:
+
+\begin{equation}
+    \begin{cases}
+        (4-1)x_1 - 2x_2 - x_3 = 0 \\
+        -x_1 + (3 - 1)x_2 - x_3 = 0 \\
+        x_1 - 2x_2 + (2 - 1)x_3 = 0
+    \end{cases}
+\end{equation}
+
+В матричном виде:
+
+$\begin{pmatrix}
+    3 & -2 & - 1 \\
+    -1 & 2 & -1 \\
+    1 & -2 & 1
+\end{pmatrix} = \begin{pmatrix}
+    3 & -2 & -1 \\
+    1 & -2 & 1
+\end{pmatrix} = \begin{pmatrix}
+    1 & -2 & 1 \\
+    0 & 4 & -4
+\end{pmatrix} = \begin{pmatrix}
+    1 & -2 & 1 \\ 
+    0 & 1 & -1
+\end{pmatrix} = \begin{pmatrix}
+    1 & 0 & -1 \\
+    0 & 1 & -1
+\end{pmatrix}$
+
+Преобразуем обратно в систему:
+
+\begin{equation}
+    \begin{cases}
+        x_1 - x_3 = 0 \\
+        x_2 - x_3 = 0 
+    \end{cases}
+\end{equation}
+
+Отсюда видим, что $x_1 = x_3, x_2 = x_3$
+
+Пусть $x_1 = 1$, тогда $x_1$ = $\begin{pmatrix}
+    1 \\
+    1 \\
+    1
+\end{pmatrix}$, видим что $X_1 = C_1 \begin{pmatrix}
+    1 \\
+    1 \\
+    1
+\end{pmatrix}$
+
+Последовательно найдем теперь второй и третий собственный векторы: $X_2$ и $X_3$.
+
+Пусть $\lambda = \lambda_2 = 3$, тогда $(A - \lambda E) * X = 0$
+
+\begin{equation}
+    \begin{cases}
+        (4-3)x_1 - 2x_2 - x_3 = 0 \\
+        -x_1 + (3 - 3)x_2 - x_3 = 0 \\
+        x_1 - 2x_2 + (2 - 3)x_3 = 0
+    \end{cases}
+\end{equation}
+
+Преобразуем в матричный вид: $\begin{pmatrix}
+    1 & -2 & -1 \\
+    -1 & 0 & 1 \\
+    1 & -2 & 1
+\end{pmatrix} = \begin{pmatrix}
+    1 & -2 & -1 \\ 1 & 0 & 1
+\end{pmatrix} = \begin{pmatrix}
+    2 & -2 & 0 \\
+    1 & 0 & 1
+\end{pmatrix} = \begin{pmatrix}
+    1 & -1 & 0 \\
+    1 & 0 & 1
+\end{pmatrix}$
+
+Из этого видно, что $x_1 = x_2, x_1 = -x_3$
+
+$X_2 = C_2 \begin{pmatrix}
+    1 \\
+    1 \\
+    -1
+\end{pmatrix}$
+
+Найдем третий собственный вектор.
+
+Пусть $\lambda = \lambda_3 = 5$, тогда $(A - \lambda E) * X = 0$
+
+\begin{equation}
+    \begin{cases}
+        (4 - 5)x_1 - 2x_2 - x_3 = 0 \\
+        -x_1 + (3 - 5)x_2 - x_3 = 0 \\
+        x_1 - 2x_2 + (2 - 5)x_3 = 0
+    \end{cases}
+\end{equation}
+
+Запишем данную систему уравнений в матричном виде: $\begin{pmatrix}
+    -1 & -2 & -1 \\
+    -1 & -2 & -1 \\
+    1 & -2 & -3
+\end{pmatrix} = \begin{pmatrix}
+    -1 & -2 & -1 \\
+    1 & -2 & -3
+\end{pmatrix} = \begin{pmatrix}
+    -1 & -2 & -1 \\
+    0 & -4 & -4
+\end{pmatrix}$
+
+Чему соответствует следующая система уравнений:
+
+\begin{equation}
+    \begin{cases}
+        -x_1 - 2x_2 - x_3 = 0 \\
+        -4x_2 - 4x_3 = 0
+    \end{cases}
+\end{equation}
+
+Я зашел в какую-то фигню, где-то ошибся, но, в общем, ответ должен получиться следующий: $X_3 = C_3 \begin{pmatrix}
+    1 \\
+    -1 \\
+    1
+\end{pmatrix}$
+
+\subsection{Векторная алгебра. Операции над векторами}
+
+Вектором $\overrightarrow{AB}$ называется направленный отрезок $AB$, заданный своим началом $A$ и концом $B$.
+
+Длиной (модулем) $|\overrightarrow{AB}|$ вектора $\overrightarrow{AB}$ называется длина отрезка $AB$.
+
+Два вектора называются коллинеарными, если они параллельны одной прямой (параллельны друг другу).
+
+Три вектора называются компланарными, если они параллельны одной плоскости.
+
+Координаты $x, y, z$ вектора $\overrightarrow{a}$ это коэффициенты разложения вектора по базису, то есть по трем некомпланарным векторам, обозначаемым как $\overrightarrow{e_1}, \overrightarrow{e_2}, \overrightarrow{e_3}$.
+
+$\overrightarrow{e_1} = \{1, 0, 0\}, \overrightarrow{e_2} = \{0, 1, 0\}, \overrightarrow{e_2} = \{0, 0, 1\}, \overrightarrow{a} = x * \overrightarrow{e_1} + y * \overrightarrow{e_2} + z * \overrightarrow{e_3}$
+
+Если $\overrightarrow{e_1}, \overrightarrow{e_2}, \overrightarrow{e_3}$ взаимно перпендикулярны и единичные векторы: $\overrightarrow{i}, \overrightarrow{j}, \overrightarrow{k}$, то такой базис называется ортонормированным.
+
+\subsubsection{Пример}
+
+Разложить вектор $\overrightarrow{a} = \{4; 2; 0\}$, если возможно, по векторам $\overrightarrow{p} = \{1; -1; 2\}, \overrightarrow{q} = \{2; 2; -1\}, \overrightarrow{r} = \{3; 7; -7\}$ 
+
+Для того, чтобы это было возможно, должно соблюдаться следующее выражение: $(\overrightarrow{p} * \overrightarrow{q}) * \overrightarrow{r} \ne 0$ - достаточное условие некомпланарности.
+
+$(\overrightarrow{p} * \overrightarrow{q}) * \overrightarrow{r} = \begin{vmatrix}
+    1 & -1 & 2 \\
+    2 & 2 & -1 \\
+    3 & 7 & -7
+\end{vmatrix} \ne 0$
+
+$\det X = -14 + 28 + 3 - 12 + 7 - 14 = 2 \ne 0$, следовательно, мы можем разложить данный вектор по трем некомпланарным векторам.
+
+$\overrightarrow{a} = x * \overrightarrow{p} + y * \overrightarrow{q} + z * \overrightarrow{r}$
+
+$\overrightarrow{p} = 1 * \overrightarrow{i} - 1 * \overrightarrow{j} + 2 * \overrightarrow{k}, \overrightarrow{q} = 2 * \overrightarrow{i} + 2 * \overrightarrow{j} - \overrightarrow{k}, \overrightarrow{r} = 3 * \overrightarrow{i} + 7 * \overrightarrow{j} - 7 * \overrightarrow{k}$
+
+$x * \overrightarrow{p} + y * \overrightarrow{q} + z * \overrightarrow{r} = x * \overrightarrow{i} - x * \overrightarrow{j} + 2x\overrightarrow{k} + 2y\overrightarrow{i} + 2y\overrightarrow{i} + 2y\overrightarrow{j} - y\overrightarrow{k} + 3z\overrightarrow{i} + 7z\overrightarrow{j} - 7z\overrightarrow{k}$
+
+Далее для разложения по базису нам необходимо вынести $\overrightarrow{i}, \overrightarrow{j}, \overrightarrow{k}$
+
+$... = (x + 2y + 3z) + \overrightarrow{j}(-x + 2y + 7z) + \overrightarrow{k}(2x - y - 7z)$
+
+$\overrightarrow{a} = x\overrightarrow{p} + y\overrightarrow{q} + z\overrightarrow{r}$
+
+\begin{equation}
+    \begin{cases}
+        x + 2y + 3z = 4 \\
+        -x + 2y + 7z = 2 \\
+        2x - y - 7z = 0
+    \end{cases}
+\end{equation}
+
+Решим данную систему уравнений каким угодно способом, сначала составив расширенную матрицу системы:
+
+$
+\begin{pmatrix}
+    1 & 2 & 3 & 4 \\
+    -1 & 2 & 7 & 2 \\
+    2 & -1 & -7 & 0
+\end{pmatrix} = \begin{pmatrix}
+    1 & 2 & 3 & 4 \\
+    1 & -2 & -7 & -2 \\
+    1 & 1 & 0 & 2
+\end{pmatrix} = \begin{pmatrix}
+    1 & 2 & 3 & 4 \\
+    1 & 1 & 0 & 2 \\
+    0 & -3 & -7 & -4
+\end{pmatrix} = \begin{pmatrix}
+    1 & -1 & -4 & 0 \\
+    1 & 1 & 0 & 2 \\
+    0 & -3 & -7 & -4
+\end{pmatrix}
+$
+
+\begin{equation}
+\begin{cases}
+    x_1 = -x_2 + 2 \\
+    x_3 = \frac{4}{7} - \frac{3}{7}x_2 \\
+    x_1 = -x_2-4x_3 = 0
+\end{cases}
+\end{equation}
+
+\begin{equation}
+    \begin{cases}
+        x_2 = -1 \\
+        x_1 = 3 \\
+        x_3 = 1
+    \end{cases}
+\end{equation}
+
+Тогда $\overrightarrow{a} = 3\overrightarrow{p} - \overrightarrow{q} + \overrightarrow{r}$
+
+\end{document}
