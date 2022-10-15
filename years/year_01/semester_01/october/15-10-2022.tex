@@ -1,0 +1,336 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+\usepackage{amsmath}
+
+\title{Алгебра и геометрия}
+\author{Лисид Лаконский}
+\date{October 2022}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\pagebreak
+
+\section{Алгебра и геометрия - 15.10.2022}
+
+\subsection{Ранг матрицы}
+
+\begin{flushleft}
+
+Рангом матрицы называется порядок наибольшего минора, отличного от нуля, который можно из этой матрицы получить.
+
+\hfill
+
+$A = \begin{pmatrix}
+    1 & 2 & 3 & 4 \\
+    5 & 0 & 1 & 1 \\
+    0 & 1 & 2 & -1 \\
+    1 & 2 & -1 & 5
+\end{pmatrix}$ - миноров первого порядка полно, второго - тоже, третьего - тоже имеется, четвертого - лишь один.
+
+Если определитель четвертого порядка не равен нулю, то $r(A) = 4$, но это нужно считать.
+
+\subsubsection{Теорема об окаймляющих минорах}
+
+Если матрица $A$ имеет ненулевой минор $\Delta \ne 0$ к-ого порядка, а все миноры, содержащие $\Delta$ $k + 1$-го порядка равны нулю, то ранг матрицы $A$ равен $k$.
+
+\subsubsection{Другой способ подсчета ранга}
+
+Ранг матрицы равен количеству не полностью нулевых строк, если данная матрица приведена к ступенчатому виду.
+
+\hfill
+
+Например, ранг матрицы $\begin{pmatrix}
+    1 & 2 & 3 & 4 & 5 \\
+    0 & 1 & 2 & -2 & 1 \\
+    0 & 0 & 3 & 1 & 7
+\end{pmatrix}$ равен трем.
+
+\hfill
+
+Если матрица не приведена к ступенчатому виду - ее надо к ней привести.
+
+\subsection{Теорема Кронекера - Капелли}
+
+Система линейных уравнений имеет решение (является совместной), если ранг расширенной матрицы совпадает с рангом матрицы системы.
+
+Если ранг расширенной матрицы не совпадает с рангом матрицы системы, то решений нет.
+
+Если $r(A) = r(A*) = n$ - то будет единственное решение.
+
+Если $r(A) = r(A*) < n$ - решений бесконечно много - система неопределена, $r$ неизвестных назовем \textbf{базисными}, а $n - r$ неизвестных назовем \textbf{свободными} (через них все будем выражать).
+
+\hfill
+
+В случае однородной системы всегда имеется хотя бы нулевое решение.
+
+\pagebreak
+\subsubsection{Фундаментальная система решений}
+
+$r(A*) = r(A) = r < n$
+
+\begin{equation}
+    \begin{cases}
+        a_{11} x_1 + a_{12} x_2 + ... + a_{1r} x_r = b_1 - a_{1r + 1} x_{r + 1} - a_{1r + 2} x_{r + 2} - ... \\
+        a_{21} x_1 + a_{22} x_2 + ... + a_{2r} x_r = b_2 - a_{2r + 1} x_{r + 1} - a_{2r + 2} x_{r + 2} - ... \\
+        ... \\
+        a_{r1} x_1 + a_{r2} x_2 + ... + a_{r r} x_r = b_r - a_{r r + 1} x_{r + 1} - ...
+    \end{cases}
+\end{equation}
+
+\hfill
+
+$x_1(c_1 c_2 ... c_{n - r}), x_2(c_1 c_2 ... c_{n - r}), c_r (c_1 c_2 ... c_{n - r})$
+
+\subsubsection{Примеры}
+
+\textbf{Пример 1.}
+
+\begin{equation}
+    \begin{cases}
+        x + y + z = 1 \\
+        x + y + 2z = 1 \\
+        2x + 2y + 4z = 3
+    \end{cases}
+\end{equation}
+
+Составим матрицу расширенную системы:
+
+$\begin{pmatrix}
+    1 & 1 & 1 & 1 \\
+    1 & 1 & 2 & 1 \\
+    2 & 2 & 4 & 3
+\end{pmatrix} \sim \begin{pmatrix}
+    1 & 1 & 1 & 1 \\
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 2 & 1
+\end{pmatrix} \sim \begin{pmatrix}
+    1 & 1 & 1 & 1 \\
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1
+\end{pmatrix}, r(A) \ne r(A*)$
+
+\hfill 
+
+\textbf{Система несовместна, решений нет}
+
+\hfill
+
+\textbf{Пример 2.}
+
+\begin{equation}
+    \begin{cases}
+        x + y + z = 1 \\
+        x + y + 2z = 1 \\
+        2x + 2y + 4z = 2
+    \end{cases}
+\end{equation}
+
+Составим расширенную матрицу системы:
+
+$\begin{pmatrix}
+    1 & 1 & 1 & 1 \\
+    1 & 1 & 2 & 1 \\
+    2 & 2 & 4 & 2
+\end{pmatrix} \sim \begin{pmatrix}
+    1 & 1 & 1 & 1 \\
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 2 & 0
+\end{pmatrix} \sim \begin{pmatrix}
+    1 & 1 & 1 & 1 \\
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 0
+\end{pmatrix}, r(A) = r(A*) < n$ - \textbf{бесконечное множество решений}.
+
+Решение: $\begin{pmatrix}
+    1 - a \\
+    a \\
+    0
+\end{pmatrix}$
+
+\hfill
+
+\textbf{Пример 3.}
+
+\begin{equation}
+    \begin{cases}
+        x + y + z = 1 \\
+        2x + 2y + 2z = 2 \\
+        -4x - 4y - 4z = -4
+    \end{cases}
+\end{equation}
+
+Составим расширенную матрицу системы:
+
+$\begin{pmatrix}
+    1 & 1 & 1 & 1 \\
+    2 & 2 & 2 & 2 \\
+    -4 & -4 & -4 & -4
+\end{pmatrix} \sim \begin{pmatrix}
+    1 & 1 & 1 & 1 \\
+    0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0
+\end{pmatrix}, r(A) = r(A*) = 1$
+
+\hfill
+
+Имеем решение: $\begin{pmatrix}
+    1 - a - b \\
+    a \\
+    b
+\end{pmatrix}$
+
+\textbf{Пример 4.}
+
+\begin{equation}
+    \begin{cases}
+        x_1 - 5x_2 + 2x_3 - 16x_4 + 3x_5 = 0 \\
+        x_1 + 11x_2 - 12x_3 + 34x_4 - 5x_5 = 0 \\
+        2x_1 - 2x_3 - 3x_3 - 7x_4 + 2x_5 = 0 \\
+        3x_1 + x_2 - 8x_3 + 2x_4 + x_5 = 0
+    \end{cases}
+\end{equation}
+
+Запишем в виде матрицы:
+
+$\begin{pmatrix}
+    1 & -5 & 2 & -16 & 3 \\
+    1 & 11 & -12 & 34 & -5 \\
+    2 & -2 & -3 & -7 & 2 \\
+    3 & 1 & -8 & 2 & 1
+\end{pmatrix} \sim \begin{pmatrix}
+    1 & -5 & 2 & -16 & 3 \\
+    0 & 16 & -14 & 50 & -8 \\
+    0 & 8 & -7 & 25 & -4 \\
+    0 & 16 & -14 & 50 & -8
+\end{pmatrix} \sim \begin{pmatrix}
+    1 & -5 & 2 & -16 & 3 \\
+    0 & 16 & -14 & 50 & -8
+\end{pmatrix}$ 
+
+\hfill
+
+\begin{equation}
+    \begin{cases}
+        x_1 - 5x_2 = -3x_5 + 16x_4 - 2x_3 \\ 
+        8x_2 = 4x_5 - 25x_4 + 7x_3
+    \end{cases}
+\end{equation}
+
+Ступенчатая матрица содержит две ненулевые строки, значит количество базисных переменных равно двум, а количество свободных - трем.
+
+\hfill
+
+$x_2 = \frac{x_5}{2} - \frac{25x_4}{8} + \frac{7x_3}{8}, x_1 = 5x_2 - 3x_5 + 16x_4 - 2x_3 = \frac{5}{2}x_5 - \frac{125}{8}x_4 + \frac{35}{8}x_3 - 3x_5 + 16x_4 - 2x_3 = \frac{1}{2}x_5 + \frac{3}{8}x_4 + \frac{19}{8}x_3$
+
+\hfill
+
+Итоговый ответ: $\begin{pmatrix}
+    -\frac{1}{2}x_5 + \frac{3}{8}x_4 + \frac{19}{8}x_3 \\
+    \frac{1}{2}x_5 - \frac{25}{8}x_4 + \frac{7}{8}x_3 \\
+    x_3 \\
+    x_4 \\
+    x_5
+\end{pmatrix} \sim C_1 \begin{pmatrix}
+    -\frac{1}{2} \\
+    \frac{1}{2} \\
+    0 \\
+    0 \\
+    1
+\end{pmatrix} + C_2 \begin{pmatrix}
+    \frac{3}{8} \\
+    -\frac{25}{8} \\
+    0 \\
+    1 \\
+    0
+\end{pmatrix} + C_3 \begin{pmatrix}
+    \frac{19}{8} \\
+    \frac{7}{8} \\
+    1 \\
+    0 \\
+    0
+\end{pmatrix}$
+
+\hfill
+
+$X_{\text{общ}} = C_1 E_1 + C_2E_2 + C_3E_3$
+
+\hfill
+
+\textbf{Пример 5.}
+
+Имеем следующую расширенную матрицу системы:
+
+$\begin{pmatrix}
+    2 & 1 & -1 & 3 & 2 \\
+    -4 & 0 & 1 & -7 & 3 \\
+    0 & 2 & -3 & 1 & 1 \\
+    2 & 3 & -4 & -2 & 3
+\end{pmatrix} \sim \begin{pmatrix}
+    2 & 1 & -1 & 3 & 2 \\
+    0 & -2 & 3 & -1 & -1 \\
+    0 & 2 & -3 & 1 & 1 \\
+    0 & 2 & -3 & 1 & 1
+\end{pmatrix} \sim \begin{pmatrix}
+    2 & 1 & -1 & 3 & 2 \\
+    0 & -2 & 3 & -1 & -1 \\
+\end{pmatrix}$
+
+\begin{equation}
+    \begin{cases}
+        2x_1 + x_2 - x_3 - 3x_4 = 2 \\
+        -2x_2 + 3x_3 - x_4 = -1
+    \end{cases}
+\end{equation}
+
+Имеем:
+
+\begin{equation}
+    \begin{cases}
+        2x_1 + x_2 = 2 + x_3 + 3x_4 \\
+        -2x_2 = -1 - 3x_3 + x4
+    \end{cases}
+\end{equation}
+
+\hfill
+
+$x_2 = \frac{1}{2} + \frac{3}{2}x_3 - \frac{1}{2}x_4, 2x_1 = 2 + x_3 + + 3x_4 - x_2 = 2 + x_3 + 3x_4 - \frac{1}{2} - \frac{3}{2}x_3 + \frac{1}{2}x_4 = \frac{3}{2} - \frac{1}{2}x_3 + \frac{7}{2}x_4$
+
+\hfill
+
+$\begin{pmatrix}
+    \frac{3}{4} - \frac{1}{4}x_3 + \frac{7}{4}x_4 \\
+    \frac{1}{2} + \frac{3}{2}x_3 - \frac{1}{2}x_4 \\
+    x_3 \\
+    x_4
+\end{pmatrix} = \begin{pmatrix}
+    \frac{3}{4} \\
+    \frac{1}{2} \\
+    0 \\
+    0
+\end{pmatrix} + C_1 \begin{pmatrix}
+    -x_1 \\
+    \frac{3}{2} \\
+    1 \\
+    0
+\end{pmatrix} + C_2 \begin{pmatrix}
+    \frac{7}{4} \\
+    -\frac{1}{2} \\
+    0 \\
+    1
+\end{pmatrix}$
+
+\hfill
+
+$X = X_{\text{ч.р}} + X_{\text{одн}}, X_{\text{одн}} = C_1E_1 + C_2E_2$, $X_{\text{ч.р}}$ - наш столбик из циферок.
+
+\end{flushleft}
+
+\end{document}
