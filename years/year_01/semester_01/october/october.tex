@@ -947,4 +947,219 @@ $X = X_{\text{ч.р}} + X_{\text{одн}}, X_{\text{одн}} = C_1E_1 + C_2E_2$,
 
 \end{flushleft}
 
+\pagebreak
+\section{Алгебра и геометрия - 21.10.2022}
+
+\subsection{Скалярное произведение}
+
+\begin{flushleft}
+
+$\vec{a} * \vec{b} = |\vec{a}| * |\vec{b}| * \cos(\vec{a};\vec{b})$
+
+Если или $\vec{a} = \vec{0}$ или $\vec{b} = \vec{0}$, то скалярное произведение будет равно нулю.
+
+Два ненулевых вектора перпендикулярны тогда и только тогда, когда их скалярное произведение равно нулю.
+
+$\vec{a} \perp \vec{b} \Longleftrightarrow \vec{a} * \vec{b} = 0 (\vec{a} \ne 0, \vec{b} \ne 0)$
+
+\subsubsection{Примеры}
+
+\textbf{Пример 1.}
+
+\hfill
+
+Найти $\cos \angle N M P$, если $M(1; 2; -4), N(4; 2; 0), P(-3; 2; -1)$
+$\vec{MN} = \{3; 0; 4\}, \vec{MP} = \{-4; 0; 3\}$
+
+$\cos \angle N M P = \frac{\vec{MN} * \vec{MP}}{|\vec{MN}| * |\vec{MP}|} = 0, \cos \angle N M P = 90^{\circ}$
+
+\subsection{Скалярная проекция}
+
+Скалярная проекция: $\text{ПР}_{\vec{b}} \vec{a} = \frac{\vec{a} * \vec{b}}{|\vec{b}|}$
+
+Векторая проекция: $\vec{\text{ПР}}_{\vec{b}} \vec{a} = \text{ПР}_{\vec{b}} \vec{a} * \frac{\vec{b}}{|\vec{b}|}$
+
+\subsubsection{Примеры}
+
+\textbf{Пример 1.}
+
+\hfill
+
+$\text{ПР}_{\vec{b}} \vec{a} - ?, \vec{\text{ПР}}_{\vec{b}} \vec{a} - ?$
+
+\hfill
+
+$\vec{a} = 2\vec{A B} - \vec{C D}, \vec{b} = \vec{O C} \times \vec{A D}, A(1; 0; -1), B(1; -1; -2), C(4; 1; 0), D(0; 4; 3), O(0; 0; 0)$
+
+\hfill
+
+$\vec{AB} = \{0; -1; -1 \}, 2\vec{AB} = \{0; -2; -2 \}, \vec{CD} = \{-4; 3; 3 \}, \vec{O C} = \{4; 1; 0 \}, \vec{AD} = \{-1; 4; 4 \}$
+
+\hfill
+
+$\vec{a} = {4; -5; -5}, \vec{b} = \vec{O C} \times \vec{AD} = \begin{vmatrix}
+    \vec{i} & \vec{j} & \vec{k} \\
+    4 & 1 & 0 \\
+    -1 & 4 & 4
+\end{vmatrix} = 4\vec{i} - 16\vec{j} + 17\vec{k}$
+
+\hfill
+
+$\text{ПР}_{\vec{b}} \vec{a} = \frac{\vec{a} * \vec{b}}{|\vec{b}|} = \frac{4 * 4 + (-5) * (-16) + (-5) * 17}{\sqrt{4^2 + (-16)^2 + 17^2}} = \frac{11}{\sqrt{561}}$
+
+$\vec{\text{ПР}}_{\vec{b}} \vec{a} = \text{ПР}_{\vec{b}} \vec{a} * \frac{\vec{b}}{|\vec{b}|} = \frac{11}{\sqrt{561}} * \frac{\vec{b}}{\sqrt{561}} = \frac{11}{561} \{ 4; -16; 16 \} = \{ \frac{4}{51}; -\frac{16}{51}; \frac{1}{3} \}$
+
+\subsection{Векторное произведение}
+
+Вектороное прозведение $\vec{a} \times \vec{b} = c$
+
+$\vec{c}$ должен соответствовать следующим требованиям:
+
+\begin{enumerate}
+    \item $|\vec{c}| = |\vec{a} \times \vec{b}| = |\vec{a}| * |\vec{b}| * \sin (\vec{a} \vec{b})$ 
+    \item $\vec{c} \perp \vec{a}, \vec{c} \perp \vec{b}$
+    \item Тройка векторов $(\vec{a}, \vec{b}, \vec{c})$ правая
+\end{enumerate}
+
+\subsubsection{Основные задачи на векторное произведение}
+
+\textbf{1) } Нахождение площади параллелограмма или треугольника, построенного на плоскости.
+
+$S_{\text{пар}} = 2S_{\triangle} = |\vec{a} \times \vec{b}|$
+
+\hfill 
+
+\textbf{2) } Нахождение $\vec{N}$, перпендикулярного двум неколлинеарным векторам:
+
+$\vec{a} || \vec{b}$, то $\vec{N} = \lambda (\vec{a} \times \vec{b}), \lambda \in R, \lambda \ne 0$
+
+\subsubsection{Свойства векторного произведения}
+
+\begin{enumerate}
+    \item $\vec{a} \times \vec{b} = -\vec{b} \times \vec{a}$
+    \item $\vec{a} \times \vec{b} = \vec{0} \Longleftrightarrow \lambda \vec{a} = \vec{b} \lor \vec{a} = \vec{0}, \vec{b} = \vec{0}$ 
+    \item $\vec{a} \times (\vec{b} + \vec{c}) = \vec{a} \times \vec{b} + \vec{a} \times \vec{c}$
+    \item $\lambda \vec{a} \times \vec{b} = \lambda (\vec{a} \times \vec{b}) = \vec{a} \times (\lambda \vec{b})$
+\end{enumerate}
+
+$\vec{a} = \{x_1; y_1; z_1\}, \vec{b} = \{x_2; y_2; z_2\}, \vec{a} \times \vec{b} = \begin{vmatrix}
+    \vec{i} & \vec{j} & \vec{k} \\
+    x_1 & y_1 & z_1 \\
+    x_2 & y_2 & z_2
+\end{vmatrix} = \vec{i} (y_1 z_1 - z_1 y_2) - \vec{j} (z_2 z_2 - z_1 x_2) + \vec{k} (x_1 y_2 - x_2 y_1)$
+
+\subsubsection{Примеры}
+
+\textbf{Пример 1.}
+
+\hfill
+
+$S_{\triangle} - ?, \vec{a} = 5\vec{m} - 8\vec{n}, \vec{b} = -\vec{m} + 2\vec{n}, |\vec{m}| = 1, |\vec{n}| = 2, \angle (\vec{m}; \vec{n}) = \frac{3}{4} \pi$
+
+\hfill
+
+$S_{\triangle} = \frac{1}{2} S_{\text{пар}} = \frac{1}{2} |\vec{a} \times \vec{b}|$
+
+$\vec{a} \times \vec{b} = (5\vec{m} - 8\vec{n}) \times (-\vec{m} + 2\vec{n}) = 5\vec{m} \times (-\vec{m}) + 5\vec{m} \times 2\vec{n} + (-8\vec{n}) \times (-\vec{m}) + (-8\vec{n}) \times 2\vec{n} = 10\vec{m} \times \vec{n} + 8 \vec{n} \times \vec{m} = 10 \vec{m} \times \vec{n} - 8 \vec{n} \times \vec{n} = 2\vec{m} \times \vec{n}$
+
+\hfill
+
+$|\vec{a} \times \vec{b}| = |2\vec{m} \times \vec{n}| = 2 * |\vec{m}| * |\vec{n}| * \sin \angle (\vec{m}; \vec{n}) = 2 * 1 * 2 * \frac{\sqrt{2}}{2} = 2\sqrt{2}$
+
+\hfill
+
+$S_{\triangle} = \frac{1}{2} |\vec{a} \times \vec{b}| = \frac{1}{2} * 2 * \sqrt{2} = \sqrt{2}$
+
+\hfill
+
+\textbf{Пример 2.}
+
+\hfill
+
+$S_{\triangle A B C} - ?, h_{a} - ?, A(1; 3; 5), B(0; -1; -3), C(4; 3; -3)$
+
+\hfill
+
+$S_{\triangle A B C} = \frac{1}{2} |\vec{BA} \times \vec{BC}|$
+
+$\vec{BA} = \{ 1; 4; 8 \}, \vec{BC} = \{ 4; 3; 0 \}$
+
+$\vec{BA} \times \vec{BC} = \begin{vmatrix}
+    \vec{i} & \vec{j} & \vec{k} \\
+    1 & 4 & 8 \\
+    4 & 3 & 0
+\end{vmatrix} = -24\vec{i} + 32\vec{j} - 13\vec{k} = \{ -24; 32; -13 \}, |\vec{BA} \times \vec{BC}| = \sqrt{(-24)^2 + 32^2 + (-13)^2} = \sqrt{1769}$
+
+\hfill
+
+$S_{\triangle A B C} = \frac{1}{2} * \sqrt{1769} \approx 21.03$
+
+$S_{\triangle ABC} = \frac{1}{2} * h * BC, |\vec{BC}| = 5, h = \frac{21 * 2}{5} \approx 8.4$
+
+\hfill
+
+\textbf{Пример 3.}
+
+\hfill
+
+$\vec{N} \perp M_1 M_2 M_3, M_1 (1; 3; 0), M_2 (-2; 1; -1), M_3 (0; 1; -1), \vec{N} - ?$
+
+\hfill
+
+$\vec{N} \perp \vec{M_1 M_2}, \vec{N} \perp \vec{M_1 M_3}$
+
+\hfill
+
+$\vec{N} = \lambda (\vec{M_1 M_2} \times \vec{M_1 M_3}), \vec{M_1 M_2} = \{ -3; -2; -1\}, \vec{M_1 M_3} = \{-1; -2; -1 \}, \vec{M_1 M_2} \text{ not parallel to } \vec{M_1 M_3}$
+
+\hfill
+
+$\vec{N} = \lambda \begin{vmatrix}
+    \vec{i} & \vec{j} & \vec{k} \\
+    -3 & -2 & -1 \\
+    -1 & -2 & -1
+\end{vmatrix} = \lambda (0\vec{i} - 2\vec{j} + 4\vec{k}) = \frac{1}{2} \{0; -2; 4 \} = \{ 0; -1; 2 \}$
+
+\subsection{Смешанное произведение}
+
+Смешанным произведением трех векторов $\vec{a}, \vec{b}, \vec{c}$ называют число: $(\vec{a} \times \vec{b}) * \vec{c} = \begin{vmatrix}
+    x_a & y_a & z_a \\
+    x_b & y_b & z_b \\
+    x_c & y_c & z_c
+\end{vmatrix}$
+
+\hfill
+
+$V_{\text{параллелепипеда}} = | (\vec{a} \times \vec{b}) * \vec{c} |, V_{\text{тр. пир.}} = \frac{1}{6} V_{\text{ПАРАЛ}} = \frac{1}{6} | (\vec{a} \times \vec{b}) * \vec{c} |$
+
+\subsubsection{Примеры}
+
+\textbf{Пример 1.}
+
+\hfill
+
+$V_{A B C D} - ?, AH - ?, A(2; -4; 5), B(-1; -3; 4), C(5; 5; -1), D(1; -2; 2)$
+
+$\vec{BA} = \{ 3; -1; 1 \}, \vec{BC} = \{6; 8; -5\}, \vec{B D} = \{2; 1; -2\}$
+
+\hfill
+
+$(\vec{a} \times {b}) * \vec{c} = \begin{vmatrix}
+    3 & -1 & 1 \\
+    6 & 8 & -5 \\
+    2 & 1 & -2
+\end{vmatrix} = -48 + 6 + 10 - 16 + 15 - 12 = -45$
+
+$V_{\text{ТР. ПИР}} = \frac{1}{3} S_{\text{осн}} * h = \frac{1}{6} | (\vec{BA} \times \vec{BC}) * \vec{B D} | = \frac{45}{6}$
+
+$S_{\triangle} = \frac{1}{2} | \vec{a} \times \vec{b} | = \frac{1}{2} | \vec{BC} \times \vec{B D}| = \frac{1}{2} \begin{vmatrix}
+    \vec{i} & \vec{j} & \vec{k} \\
+    6 & 8 & -5 \\
+    2 & 1 & -2
+\end{vmatrix} = \frac{1}{2} * |\{ -11; 2; -16 \}| = \frac{1}{2} \sqrt{(-11)^2 + 2^2 + (-10)^2} = \frac{15}{2}$
+
+$h = \frac{3 V_{\text{ТР. ПИР.}}}{S_{\text{осн.}}} = \frac{45}{15} = 3$
+
+\end{flushleft}
+
 \end{document}
