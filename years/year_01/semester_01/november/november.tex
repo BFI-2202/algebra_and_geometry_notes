@@ -133,4 +133,209 @@ $F_1(-\sqrt{29}; 0)$, $F(\sqrt{29}; 0)$
 
 \end{flushleft}
 
+\pagebreak
+\section{Алгебра и геометрия - 12.11.2022}
+
+\subsection{Векторное произведение векторов}
+
+\begin{flushleft}
+
+\textbf{Векторным произведением} векторов $\vec{a}$ и $\vec{b}$ называется вектор $\vec{c}$, удовлетворяющий следующим условиям:
+
+\begin{enumerate}
+    \item $|\vec{c}| = |\vec{a}| |\vec{b}| \sin \alpha$, где $\alpha$ - угол между векторами $\vec{a}$ и $\vec{b}$
+    \item $\vec{c} \perp \vec{a}$, $\vec{c} \perp \vec{b}$
+    \item $\vec{a}, \vec{b}, \vec{c}$ образуют правую тройку
+\end{enumerate}
+
+Если \textbf{один из векторов нулевой} или \textbf{эти векторы параллельны}, то их векторное произведение - тоже нулевой вектор.
+
+\paragraph{Геометрическая интерпретация}
+
+Длина вектора векторного произведения численно равна \textbf{площади параллелограмма}, построенного на этих векторах.
+
+\paragraph{Свойства векторного произведения}
+
+\begin{multienumerate}
+    \mitemxx{$[ a \times b] = -[b \times a]$}{$[(\alpha a) \times b] = \alpha [a \times b]$}
+    \mitemxx{$[(a + b) \times c] = [a \times c] + [b \times c]$}{$a \times a = 0$}
+\end{multienumerate}
+
+\paragraph{Запись в виде определителя}
+
+\hfill
+
+$\vec{a} = \{ x_1, y_1, z_1 \}, \vec{b} = \{ x_2, y_2, z_2 \}$, $\vec{a} \times \vec{b} = \begin{vmatrix}
+    i & j & k \\
+    x_1 & y_1 & z_1 \\
+    x_2 & y_2 & z_2
+\end{vmatrix} = \vec{i} \begin{vmatrix}
+    y_1 & z_1 \\
+    y_2 & z_2
+\end{vmatrix} - \vec{j} \begin{vmatrix}
+    x_1 & z_1 \\
+    x_2 & z_2
+\end{vmatrix} + \vec{k} \begin{vmatrix}
+    x_1 & y_1 \\
+    x_2 & y_2
+\end{vmatrix}$
+
+\paragraph{Примеры}
+
+\hfill
+
+\textbf{Пример 1.} Дано: $|\vec{a}| = 3, |\vec{b}| = 4, \phi = 90^{\circ}$. Найти $|(3\vec{a} - \vec{b}) \times (\vec{a} - 2\vec{b})|$
+
+$|(3\vec{a} - \vec{b}) \times (\vec{a} - 2\vec{b})| = |3\vec{a} \times \vec{a} - \vec{b} \times \vec{a} - 3\vec{a} \times 2 \vec{b} + \vec{b} \times 2 \vec{b}| = |-\vec{b} \times \vec{a} + 6\vec{b} \times \vec{a}| = |5\vec{b} \times \vec{a}| = 5 |\vec{b}| |\vec{a}| = 5 * 3 * 4 = 60$
+
+\hfill
+
+\textbf{Пример 2.} Дано: $A(1; 2; 0), B(3; 0; -3), C(5; 2; 6)$. Найти площадь треугольника, образуемого этими точками.
+
+$\vec{AB} = \{ 2; 2; -3 \}, \vec{AC} = \{4; 0; 6 \}, \vec{AB} \times \vec{AC} = \begin{vmatrix}
+    i & j & k \\
+    2 & -2 & -3 \\
+    4 & 0 & 6
+\end{vmatrix} = \vec{i} \begin{vmatrix}
+    -2 & -3 \\
+    0 & 6
+\end{vmatrix} - \vec{j} \begin{vmatrix}
+    2 & -3 \\
+    4 & 6
+\end{vmatrix} + \vec{k} \begin{vmatrix}
+    2 & -2 \\
+    4 & 0
+\end{vmatrix} = -12\vec{i} - 24\vec{j} + 8\vec{k}, |\{ -12; -24; 8 \}| = \sqrt{144 + 576 + 64} = 28$
+
+Искомая площадь треугольника: $S = \frac{1}{2} |\{ -12; -24; 8 \}| = 14$
+
+\hfill
+
+\textbf{Пример 3}
+
+Дано: $\vec{x} \perp \vec{a}, \vec{x} \perp \vec{b}, \vec{a} = \{ 4; -2; 3\}, \vec{b} = \{ 0; 1; 3 \}, |\vec{x}| = 26$, найти координаты данного $\vec{x}$, образующего с осью OY тупой угол.
+
+$\vec{a} \times \vec{b} = \begin{vmatrix}
+    i & j & k \\
+    4 & -2 & 3 \\
+    0 & 1 & 3
+\end{vmatrix} = -3\vec{i} - 12\vec{j} + 4\vec{k}, \vec{x} = \{ 3 \lambda; 12 \lambda; -4 \lambda \}, |x| = \sqrt{9\lambda^2 + 144\lambda^2 + 16\lambda^2} = 13|\lambda|, \lambda = \pm 2$
+
+$\vec{x} = \{ -6; -24; 8 \}$ - \textbf{ответ, ибо именно он образует тупой угол}, или $\vec{x} = \{ 6; 24; -8 \}$
+
+\subsection{Смешанное произведение трех векторов}
+
+\textbf{Смешанным произведением трех векторов} называется \textbf{число}, которое получается, если вектор $\vec{a}$ умножить векторно на $\vec{b}$, а потом результат этого произведения скалярно умножить на $c$:
+
+$$\vec{a} \vec{b} \vec{c} = ([\vec{a} \times \vec{b}]) \vec{c}$$
+
+$\vec{a} \vec{b} \vec{c} > 0$ - если тройка векторов правая, $\vec{a} \vec{b} \vec{c} < 0$ - если тройка векторов левая.
+
+\paragraph{Циклическая перестановка}
+
+$\vec{a} \vec{b} \vec{c} = \vec{c} \vec{a} \vec{b} = \vec{b} \vec{c} \vec{a}$
+
+Если же перестановка соседних векторов, то происходит смена знака: $\vec{a} \vec{b} \vec{c} = - \vec{b} \vec{a} \vec{c}$
+
+\paragraph{Запись в виде определителя}
+
+$$\vec{a} \vec{b} \vec{c} = \begin{vmatrix}
+    x_1 & y_1 & z_1 \\
+    x_2 & y_2 & z_2 \\
+    x_3 & y_3 & z_3
+\end{vmatrix}$$
+
+\paragraph{Условие компланарности} Условие компланарности трех векторов - их смешанное произведение равно нулю.
+
+\paragraph{Геометрическая интерпретация} Смешанное произведение векторов по модулю равно \textbf{объему параллелепипеда}, построенного на этих векторах.
+
+$V_{\text{пир}} = \frac{1}{6} V_{\text{пар}}$
+
+Если нам необходимо найти высоту чего-то там, то $h = \frac{|a b c|}{|[a \times b]|}$
+
+\paragraph{Примеры}
+
+\hfill
+
+\textbf{Пример 1.} Дано: $\vec{a} = \{ 2; 3; 1 \}, \vec{b} = \{ 1; -1; 3 \}, \vec{c} = \{ 1; 9; -11 \}$. Определить, компланарны ли данные векторы.
+
+$\vec{a} \vec{b} \vec{c} = \begin{vmatrix}
+    2 & 3 & -1 \\
+    1 & -1 & 3 \\
+    1 & 9 & -11
+\end{vmatrix} = -\begin{vmatrix}
+    1 & -1 & 3 \\
+    2 & 3 & -1 \\
+    1 & 9 & -11
+\end{vmatrix} = -\begin{vmatrix}
+    1 & -1 & 3 \\
+    0 & 5 & -7 \\
+    0 & 10 & -14
+\end{vmatrix} = -\begin{vmatrix}
+    1 & -1 & 3 \\
+    0 & 5 & -7
+\end{vmatrix}$
+
+Таким образом, данные три вектора \textbf{компланарны}
+
+\hfill
+
+\textbf{Пример 2.} Дано: $A(2; -1; 1), B(5; 5; 4), C(3; 2; -1), D(4; 1; 3)$. Найти объем тетраэдра, образуемого данными точками.
+
+$\vec{AB} = \{ 3; 6; 3 \}, \vec{AC} = \{ 1; 3; -2 \}, \vec{AD} = \{ 2; 2; 2 \}$
+
+$\vec{AB} \vec{AC} \vec{AD} = \begin{vmatrix}
+    3 & 6 & 3 \\
+    1 & 3 & -2 \\
+    2 & 2 & 2
+\end{vmatrix} = 3 * 2 \begin{vmatrix}
+    1 & 2 & 1 \\
+    1 & 3 & -2 \\
+    1 & 1 & 1
+\end{vmatrix} = 3 * 2 \begin{vmatrix}
+    1 & 2 & 1 \\
+    0 & 1 & -3 \\
+    0 & -1 & 0
+\end{vmatrix} = 3 * 2 \begin{vmatrix}
+    1 & 2 & 1 \\
+    0 & 1 & -2 \\
+    0 & 0 & -3
+\end{vmatrix} = -18$
+
+\textbf{Объем тетраэдра}: $S = \frac{1}{8} * |-18| = 3$
+
+\subsection{Двойное векторное произведение}
+
+Пусть $\vec{a}$ умножается векторно на $\vec{b}$, а полученный вектор векторно умножается на $\vec{c}$ - результат называется \textbf{двойным векторным произведением}: $[ [ \vec{a} \times \vec{b} ] \times \vec{c}] = [ [ \vec{a} \vec{b} ] \vec{c}] \ne [ \vec{a} \times [ \vec{b} \times \vec{c} ] ]$
+
+$[ [ \vec{a} \times \vec{b} ] \times \vec{c} ] = \vec{b} (\vec{a} \vec{c}) - \vec{a} (\vec{b} \vec{c})$
+
+\paragraph{Примеры}
+
+\hfill
+
+Допустим, имеем $\vec{a} = \{ x_1; 0; 0 \}, \vec{b} = \{ x_2; y_2; 0 \}, \vec{c} = \{ x_3; y_3; z_3 \}$, тогда
+
+$[ \vec{a} \times \vec{b} ] = \begin{vmatrix}
+    i & j & k \\
+    x_1 & 0 & 0 \\
+    x_2 & y_2 & 0
+\end{vmatrix} = \vec{i} * 0 - \vec{j} * 0 + \vec{k} \begin{vmatrix}
+    x_1 & 0 \\
+    x_2 & y_2
+\end{vmatrix} = \{ 0; 0; x_1 y_2 \}$
+
+$[ [ \vec{a} \times \vec{b} ] \times \vec{c} ] = \begin{vmatrix}
+    i & j & k \\
+    0 & 0 & x_1 y_2 \\
+    x_3 & y_3 & z_3
+\end{vmatrix} = \vec{i} (0 - x_1 y_2 y_3) - \vec{j} (0 - x_3 x_1 y_2 ) + \vec{k} * 0 = \{ -x_1 y_2 y_3; x_3 x_1 y_2; 0 \}$
+
+$a * c = x_1 x_3, b * c = x_2 x_3 + y_2 y_3, \vec{b} (a * c) = \{x_1 x_2 x_3; x_1 y_2 x_3; 0 \}, \vec{a} (\vec{b} \vec{c}) = \{ x_1 (x_2 x_3 + y_2 y_3); 0; 0 \}$
+
+$\vec{b} (\vec{a} \vec{c}) - \vec{a} (\vec{b} \vec{c}) = \{ x_1 x_2 x_3 - x_1 (x_2 x_3 + y_2 y_3); x_1 y_2 x_3; 0 \}$
+
+\end{flushleft}
+
+
 \end{document}
