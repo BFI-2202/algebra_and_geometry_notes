@@ -1,0 +1,73 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+\usepackage{amsmath}
+\usepackage{multienum}
+
+\def\vec{\ensuremath\overrightarrow}
+\def\proj{\ensuremath\text{Пр}}
+
+\title{Алгебра и геометрия}
+\author{Лисид Лаконский}
+\date{September 2022}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\pagebreak
+
+\section{Алгебра и геометрия - 01.09.2022}
+
+\subsection{Комплексные числа}
+
+\begin{flushleft}
+
+\textbf{Общий вид} комплексного числа: $z = a + ib$, $i$ — мнимая единица ($i^2 = -1$); $\overline{z} = a - ib$
+
+\subsubsection{Простейшие операции над комплексными числами}
+
+\paragraph{Сложение}
+
+Пусть $z_1 = a_1 + ib_1$, $z_2 = a_2 + ib_2$, тогда $z_1 \pm z_2 = (a_1 \pm a_2) + i(b_1 \pm b_2)$
+
+Некоторые частные случаи: $z + \overline{z} = 2a$
+
+\paragraph{Умножение}
+
+Пусть $z_1 = a_1 + ib_1$, $z_2 = a_2 + ib_2$, тогда $z_1 * z_2 = (a_1 + ib_1)(a_2 + ib_2) = a_1a_2 + ib_1a_2 + a_1ib_2 + i^2b+b_2=(a_1a_2-b_1b_2) + i(b_1a_2 + a_1b_2)$
+
+Некоторые частные случаи: $z * \overline{z} = a^2 + b^2$
+
+\paragraph{Деление}
+
+Пусть $z_1 = a_1 + ib_1$, $z_2 = a_2 + ib_2$, тогда $\frac{z_1}{z_2} = \frac{(a_1 + ib_1)}{(a_2 + ib_2)} * \frac{(a_2-ib_2)}{(a_2-ib_2)} = \frac{a_1a_2-a_1ib_2+ib_1a_2-i^2b_1b_2}{a_2^2+b_2^2} = \frac{a_1a_2 + b_1b_2 + i(a_2b_1 - a_1b_2)}{a_2^2+b_2^2} = \frac{a_1a_2+b_1b_2}{a_2^2+b_2^2}+i\frac{a_2b_1-a_1b_2}{a_2^2+b_2^2}$
+
+\subsubsection{Тригонометрическая форма комплексного числа}
+
+\textbf{Тригонометрическая форма} комплексного числа: $z = \rho (\cos \phi + i\sin \phi)$, где $\rho$ — модуль (абсолютная величина) комплексного числа, $\rho = \sqrt{a^2 + b^2}$, а $\phi$ — кратчайший угол поворота от оси OX до радиус-вектора:
+
+\hspace{5mm} $\phi = \arg z = \arctg \frac{b}{a}$, где $a = \rho \cos \phi, b = \rho \sin \phi$
+
+\paragraph{Умножение}
+
+$z_1 * z_2 = \rho_1 \rho_2 (\cos(\phi_1 + \phi_2) + i\sin(\phi_1 + \phi_2))$
+
+\paragraph{Возведение в степень}
+
+$z^n = \rho_n (\cos n\phi + i\sin n\phi)$ — \textbf{формула Муавра}
+
+\paragraph{Извлечение корня}
+
+$\sqrt[n]{z}$ имеет n различных ответов, располагающихся в \textbf{углах правильного n-угольника}:
+
+\hspace{5mm} $\sqrt[n]{z} = \sqrt[n]{p} (\cos \frac{\phi + 2\pi k}{n} + i\sin \frac{\phi + 2\pi k}{n})$, $k = 0, 1 \dots n - 1$
+
+\end{flushleft}
+
+\end{document}
