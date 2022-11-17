@@ -30,4 +30,5 @@
 | Дата | Тип занятия | Рассмотренные темы | Ссылка на конспект |
 |------|------------|----------------------|--------------------|
 | 01.09.2022 | Лекция | Комплексные числа, тригонометрическая форма комплексного числа; операции над комплексными числами | [tex](years/year_01/semester_01/september/01-09-2022.tex), [pdf](years/year_01/semester_01/september/render/01-09-2022.pdf) |
+| Неизвестно | Практика | Матрицы: операции над матрицами, определитель матрицы, алгебраическое дополнение; решение систем линейных уравнений: правило Крамера, матричный способ | [tex](years/year_01/semester_01/september/unknown_1.tex), [pdf](years/year_01/semester_01/september/render/unknown_1.pdf) |
 | **Общий документ** | --- | --- | [tex](years/year_01/semester_01/september/september.tex), [pdf](years/year_01/semester_01/september/render/september.pdf) |
