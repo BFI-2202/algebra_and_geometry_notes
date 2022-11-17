@@ -10,6 +10,7 @@
 |------|------------|----------------------|--------------------|
 | 01.11.2022 | Практика | Кривые второго порядка: эллипс, гипербола, парабола; параллельный перенос координат | [tex](years/year_01/semester_01/november/01-11-2022.tex), [pdf](years/year_01/semester_01/november/renders/01-11-2022.pdf) |
 | 12.11.2022 | Лекция | Векторное произведение векторов, смешанное произведение трех векторов, двойное векторное произведение | [tex](years/year_01/semester_01/november/12-11-2022.tex), [pdf](years/year_01/semester_01/november/renders/12-11-2022.pdf) |
+| 17.11.2022 | Практика | Разбор контрольной работы №1 | [tex](years/year_01/semester_01/november/17-11-2022.tex), [pdf](years/year_01/semester_01/november/renders/17-11-2022.pdf) |
 | **Общий документ** | --- | --- | [tex](years/year_01/semester_01/november/november.tex), [pdf](years/year_01/semester_01/november/renders/november.pdf) |
 
 ### Октябрь
