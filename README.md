@@ -24,3 +24,10 @@
 | 24.10.2022 | Практика | Прямая на плоскости: уравнения прямой на плоскости, угол между прямыми на плоскости  | [tex](years/year_01/semester_01/october/24-10-2022.tex), [pdf](years/year_01/semester_01/october/render/24-10-2022.pdf) |
 | 29.10.2022 | Лекция | Линейные пространства: аксиомы и следствия из них, линейная комбинация элементов, размерность, базис; скалярные произведения и проекции векторов  | [tex](years/year_01/semester_01/october/29-10-2022.tex), [pdf](years/year_01/semester_01/october/render/29-10-2022.pdf) |
 | **Общий документ** | --- | --- | [tex](years/year_01/semester_01/october/october.tex), [pdf](years/year_01/semester_01/october/render/october.pdf) |
+
+### Сентябрь
+
+| Дата | Тип занятия | Рассмотренные темы | Ссылка на конспект |
+|------|------------|----------------------|--------------------|
+| 01.09.2022 | Лекция | Комплексные числа, тригонометрическая форма комплексного числа; операции над комплексными числами | [tex](years/year_01/semester_01/september/01-09-2022.tex), [pdf](years/year_01/semester_01/september/render/01-09-2022.pdf) |
+| **Общий документ** | --- | --- | [tex](years/year_01/semester_01/september/september.tex), [pdf](years/year_01/semester_01/september/render/september.pdf) |
