@@ -1,0 +1,111 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+\usepackage{amsmath}
+\usepackage{multienum}
+\usepackage{pgfplots}
+\usepackage{tikz}
+
+\def\vec{\ensuremath\overrightarrow}
+\def\proj{\ensuremath\text{Пр}}
+
+\title{Алгебра и геометрия}
+\author{Лисид Лаконский}
+\date{November 2022}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\pagebreak
+
+\section{Алгебра и геометрия - 21.11.2022}
+
+\subsection{Плоскость в пространстве}
+
+\begin{flushleft}
+
+$\vec{N}$ - ненулевой вектор, перпендикулярный плоскости, называется \textbf{вектором нормали} данной плоскости.
+
+\subsubsection{Уравнения плоскости}
+
+$Ax + By + C z + D = 0$ - общее уравнение плоскости, $A^2 + B^2 + C^2 \ne 0$, $\vec{N} = \{ A; B; C \}$
+
+$A(x - x_0) + B(y - y_0) + C(z - z_0) = 0$ - уравнение плоскости, проходящей через точку $M_0(x_0, y_0, z_0)$ с данным $\vec{N} = \{ A; B; C \} \ne 0$ 
+
+
+$\begin{vmatrix}
+    x - x_0 & y - y_0 & z - z_0 \\
+    a_1 & a_2 & a_3 \\
+    b_1 & b_2 & b_3
+\end{vmatrix} = 0$ - 
+уравнение плоскости, проходящей через точку $M_0(x_0; y_0; z_0)$ параллельно двум неколлинеарным векторам $\vec{a} = \{ a_1; a_2; a_3 \}$ и $\vec{b} = \{ b_1; b_2; b_3 \}$
+
+$\begin{vmatrix}
+    x - x_1 & y - y_1 & z - z_1 \\
+    x_2 - x_1 & y_2 - y_1 & z_2 - z_1 \\
+    x_3 - x_1 & y_3 - y_1 & z_3 - z_1
+\end{vmatrix} = 0$ - уравнение плоскости, проходящей через 3 точки $M_1(x_1; y_1; z_1)$, $M_2(x_2; y_2; z_2)$ и $M_3(x_3; y_3; z_3)$, не лежащие на одной прямой
+
+\subsubsection{Углы между плоскостями}
+
+\textbf{Косинус угла} между плоскостями $\alpha_1$: $A_1 x + B_1 y + C_1 z + D_1 = 0$ и $\alpha_2$: $A_2 x + B_2 y + C_2 z + D_2 = 0$ вычисляется по формуле: $\cos (\alpha_1; \alpha_2) = \pm \frac{\vec{N_1} * \vec{N_2}}{|\vec{N_1}| * |\vec{N_2}|} = \pm \frac{A_1 A_2 + B_1 B_2 + C_1 C_2}{\sqrt{A_1^2 + B_1^2 + C_1^2} * \sqrt{A_2^2 + B_2^2 + C_2^2}} \ge 0$
+
+Если $\alpha_1 \perp \alpha_2$, то $\vec{N_1} \perp \vec{N_2}$, если $\alpha_1 || \alpha_2$, то $\vec{N_1} || \vec{N_2}$
+
+\subsubsection{Примеры решения задач}
+
+\hfill
+
+\textbf{Пример 1}
+
+Составьте уравнение плоскости $\alpha$, параллельной оси $Ox$ и проходящей через точки $A(1; 0; 5)$ и $B(0; -4; 8)$.
+
+$M_0 = A(1; 0; 5)$, $\vec{a} = \vec{AB} = \{ -1; -4; 3 \}$, $\vec{b} = \vec{i} = \{ 1; 0; 0 \}$
+
+$\begin{vmatrix}
+    x - 1 & y - 0 & z - 5 \\
+    -1 & -4 & 3 \\
+    1 & 0 & 0
+\end{vmatrix} = 0 \Longleftrightarrow 3(y-0) - (-4(z-5)) = 0 \Longleftrightarrow 3y - (-4z + 20) = 0 \Longleftrightarrow 3y + 4z - 20 = 0$
+
+\hfill
+
+\textbf{Пример 2}
+
+Найдите угол между плоскостями $\alpha_1$: $x - y + 80 = 0$, $\alpha_2$: $3x + 4y + 5z - 17 = 0$
+
+$N_1 = \{1; -1; 0 \}$, $N_2 = \{3; 4; 5 \}$
+
+$\cos (\alpha_1; \alpha_2) = \frac{3 + (-4) + 0}{\sqrt{2} * \sqrt{50}} = \frac{-1}{\sqrt{2} * \sqrt{50}} = 0.1$, $\angle (\alpha_1; \alpha_2) = \arccos 0.1 \approx 84.3^\circ$
+
+\hfill
+
+\textbf{Пример 3}
+
+Найдите расстояние от точки $P(0; -1; 5)$ до плоскости $\alpha$, проходящей через точку $A(8; 1; -2)$ перпендикулярно вектору $\vec{n} = \{ 1; 2; -2 \}$
+
+\hfill
+
+\textbf{Первый способ} решения данной задачи.
+
+$r = |\proj_{\vec{n}} \vec{PA}| = |\frac{\vec{n} * \vec{PA}}{|\vec{n}|}|$, $\vec{PA} = \{ 8; 2; -7 \}$
+
+$r = \frac{8 + 4 + 14}{3} = \frac{26}{3}$
+
+\textbf{Второй способ решения данной задачи}
+
+$r = \frac{|A x_0 + B y_0 + C z_0 + D|}{\sqrt{A^2 + B^2 + C^2}}$
+
+$x + 2y - 2z - 14 = 0$ - уравнение данной плоскости
+
+$r = \frac{|0 + 2*(-1) - 2 * 5 - 14|}{3} = \frac{26}{3}$
+
+\end{flushleft}
+
+\end{document}
