@@ -6,6 +6,7 @@
 \usepackage[russian]{babel}
 
 \usepackage{amsmath}
+\newtheorem{theorem}{Теорема}[section]
 
 \title{Алгебра и геометрия}
 \author{Лисид Лаконский}
@@ -80,7 +81,11 @@ A = \begin{pmatrix}
 \end{pmatrix}, \begin{vmatrix} 1 & 2 \\ 0 & -1 \end{vmatrix} = -1 \ne 0
 $
 
-\subsection{Теорема Кронекера-Капелли}
+\subsection{Теорема Кронекера — Капелли}
+
+\begin{theorem}[Теорема Кронекера — Капелли]
+Система линейных алгебраических уравнений совместна тогда и только тогда, когда ранг её основной матрицы равен рангу её расширенной матрицы.
+\end{theorem}
 
 Рассмотрим систему $m$ линейных уравнений с $n$ неизвестными:
 
