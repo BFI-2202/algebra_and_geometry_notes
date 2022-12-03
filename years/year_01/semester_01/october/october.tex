@@ -7,6 +7,7 @@
 
 \usepackage{amsmath}
 \usepackage{multienum}
+\newtheorem{theorem}{Теорема}[section]
 
 \def\vec{\ensuremath\overrightarrow}
 \def\proj{\ensuremath\text{Пр}}
@@ -978,7 +979,7 @@ $\vec{MN} = \{3; 0; 4\}, \vec{MP} = \{-4; 0; 3\}$
 
 $\cos \angle N M P = \frac{\vec{MN} * \vec{MP}}{|\vec{MN}| * |\vec{MP}|} = 0, \cos \angle N M P = 90^{\circ}$
 
-\subsection{Скалярная проекция}
+\subsection{Скалярная и векторная проекция}
 
 Скалярная проекция: $\text{ПР}_{\vec{b}} \vec{a} = \frac{\vec{a} * \vec{b}}{|\vec{b}|}$
 
@@ -1051,7 +1052,7 @@ $\vec{a} = \{x_1; y_1; z_1\}, \vec{b} = \{x_2; y_2; z_2\}, \vec{a} \times \vec{b
     \vec{i} & \vec{j} & \vec{k} \\
     x_1 & y_1 & z_1 \\
     x_2 & y_2 & z_2
-\end{vmatrix} = \vec{i} (y_1 z_1 - z_1 y_2) - \vec{j} (z_2 z_2 - z_1 x_2) + \vec{k} (x_1 y_2 - x_2 y_1)$
+\end{vmatrix} = (\vec{i} y_1 z_2 + x_1 y_2 \vec{k} + \vec{j} z_1 x_2) - (\vec{k} y_1 x_2 + y_2 z_1 \vec{i} + x_1 \vec{j} z_2)  = \vec{i} (y_1 z_2 - y_2 z_1) + \vec{k} (x_1 y_2 - y_1 x_2) + \vec{j} (x_2 z_1 - x_1 z_2)$
 
 \subsubsection{Примеры}
 
